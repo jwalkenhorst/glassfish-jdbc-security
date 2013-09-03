@@ -30,6 +30,7 @@ Deployment:
 5b) For the "Class Name" option, check the lower radio button and enter us.walkenhorst.glassfish.security.jdbc.DBRealm
 5c) For each of the following settings, click "Add Property" and add a new name/value pair (if you want a non-default value).
     The default values are in parenthesis, other valid values are listed after the default.
+```
 		jaas-context (DBRealm)
 		dataSource (jdbc/users)
 		digestAlgorithm (PBKDF2) SHA-256 SHA-512
@@ -39,6 +40,7 @@ Deployment:
 		groupCol (groupname)
 		passCol (password)
 		saltCol (salt)
+```
 	The jaas-context value should probably always use the default value.
 	dataSource refers to the JNDI name of the JDBC connection poolto use for authentication.
 	digestIterations only matters if the digestAlgorithm is PBKDF2. It is ignored otherwise.
@@ -47,8 +49,10 @@ Deployment:
 	one row for each group he/she belongs to.
 	For a database in 2nd normal form (i.e. separate tables for users and groups, with a mapping table that joins them),
 	I recommend creating a view that left joins users to groups using the mapping table. For example:
+```
 	CREATE VIEW `login` AS
 		SELECT `u`.`name` AS `username`,`u`.`password` AS `password`,`u`.`salt` AS `salt`,`g`.`name` AS `groupname`
 		FROM ((`users` `u` LEFT JOIN `users_groups` `ug` ON((`u`.`user_id` = `ug`.`user_id`)))
 		LEFT JOIN `groups` `g` ON((`ug`.`group_id` = `g`.`group_id`)));
+```
 5d) Save the new realm. It is now ready to be used. 
