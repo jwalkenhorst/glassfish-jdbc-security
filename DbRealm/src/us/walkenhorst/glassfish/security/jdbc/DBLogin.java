@@ -25,6 +25,11 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
+/* To use this module, open the login.conf file in the \glassfish\domains\domain1\config directory. Add the following lines at the end of the file and save:
+	DBRealm{
+		edu.neumont.csc280.security.jdbc.DBLogin required;
+	};
+*/
 public class DBLogin extends AppservPasswordLoginModule{
 	
 	@Override
