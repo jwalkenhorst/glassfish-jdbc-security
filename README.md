@@ -44,11 +44,13 @@ Deployment:
 	The jaas-context value should probably always use the default value.
 	dataSource refers to the JNDI name of the JDBC connection poolto use for authentication.
 	digestIterations only matters if the digestAlgorithm is PBKDF2. It is ignored otherwise.
-	For the remaining properties, the realm expects a single table to have the username, password, salt, and groupname
-	for each user. If a user belongs to more than one group, then there should be multiple rows for that user,
+	For the remaining properties, the realm expects a single table to have the
+	username, password, salt, and groupname	for each user.
+	If a user belongs to more than one group, then there should be multiple rows for that user,
 	one row for each group he/she belongs to.
-	For a database in 2nd normal form (i.e. separate tables for users and groups, with a mapping table that joins them),
-	I recommend creating a view that left joins users to groups using the mapping table. For example:
+	For a database in 2nd normal form (i.e. separate tables for users and groups, with a mapping table
+	that joins them), I recommend creating a view that left joins users to groups using the mapping table.
+	For example:
 ```
 	CREATE VIEW `login` AS
 		SELECT `u`.`name` AS `username`,`u`.`password` AS `password`,`u`.`salt` AS `salt`,`g`.`name` AS `groupname`
