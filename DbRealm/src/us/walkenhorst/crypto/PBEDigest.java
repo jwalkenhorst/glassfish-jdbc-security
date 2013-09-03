@@ -32,7 +32,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 /**
  * Hashes the password using PBKDF2.
  * 
- * @author jwalkenhorst
  */
 public class PBEDigest extends PasswordDigest{
 	
@@ -73,7 +72,7 @@ public class PBEDigest extends PasswordDigest{
 		String pass = in.readLine();
 		char[] charArray = pass.toCharArray();
 		int iterations = 1000;
-		PBEDigest digest = new PBEDigest(charArray, iterations);
+		PBEDigest digest = new PBEDigest(charArray, iterations); //throwaway instantiation to time without JIT
 		long start = System.currentTimeMillis();
 		digest = new PBEDigest(charArray, iterations);
 		String saltedDigest = digest.getSaltedDigest();
