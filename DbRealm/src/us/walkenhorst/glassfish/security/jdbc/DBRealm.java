@@ -35,7 +35,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 /**
  * When configuring the realm, the following properties may be set.
- * The default values are in parenthesis, any following values may also be used:
+ * The default values are in parenthesis, other valid values are listed after the default:
  * jaas-context (DBRealm)
  * dataSource (jdbc/users)
  * digestAlgorithm (PBKDF2) SHA-256 SHA-512
