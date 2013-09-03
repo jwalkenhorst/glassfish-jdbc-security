@@ -35,6 +35,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 public class PasswordMessageDigest extends PasswordDigest{
 	
+	/**
+	 * A list of all MessageDigest algorithms provided by Java as of Sept 2013
+	 *
+	 */
 	public enum MessageDigestAlgorithm{
 		MD2("MD2"), MD5("MD5"), SHA1("SHA"), SHA256("SHA-256"), SHA384("SHA-384"), SHA512("SHA-512");
 		
@@ -65,6 +69,9 @@ public class PasswordMessageDigest extends PasswordDigest{
 		}
 	}
 	
+	/**
+	 * The digest algorithm to use
+	 */
 	private String algo;
 	
 	/**
@@ -97,9 +104,6 @@ public class PasswordMessageDigest extends PasswordDigest{
 		this.algo = algo;
 	}
 	
-	/**
-	 * Digests the salt with the password and sets the saltedDigest.
-	 */
 	@Override
 	protected void digest() throws NoSuchAlgorithmException{
 		MessageDigest messageDigest = MessageDigest.getInstance(algo);

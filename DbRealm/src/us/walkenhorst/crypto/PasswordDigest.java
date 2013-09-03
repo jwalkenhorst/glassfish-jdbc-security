@@ -32,12 +32,24 @@ import javax.xml.bind.DatatypeConverter;
  */
 public abstract class PasswordDigest{
 	
+	/**
+	 * The password to be salted and digested
+	 */
 	protected char[] password;
 	
+	/**
+	 * The salt to be added to the password.
+	 */
 	protected byte[] salt;
 	
+	/**
+	 * The result of salting and digesting the password.
+	 */
 	protected byte[] saltedDigest;
 	
+	/**
+	 * Generates the salted digest
+	 */
 	protected abstract void digest() throws NoSuchAlgorithmException;
 	
 	/**
