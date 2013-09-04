@@ -151,9 +151,9 @@ public class DBAuthenticate{
 	
 	public String[] getUserGroups(String name, char[] password){
 		String salt = getSaltForUser(name);
-		PasswordDigest digest = getDigest(password, salt);
 		String[] groups = null;
 		if (salt != null){
+			PasswordDigest digest = getDigest(password, salt);
 			try (Connection con = getDataSource().getConnection()){
 				PreparedStatement statement = con.prepareStatement(authQuery);
 				statement.setString(1, name);
